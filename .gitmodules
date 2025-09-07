@@ -1,0 +1,3 @@
+[submodule "Pdf_tools_Back/ReadOnlyPdf_Downloader"]
+	path = Pdf_tools_Back/ReadOnlyPdf_Downloader
+	url = https://github.com/breakpack/ReadOnlyPdf_Downloader
