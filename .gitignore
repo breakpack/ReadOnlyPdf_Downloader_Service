@@ -1,0 +1,15 @@
+# env files
+.env*
+Pdf_tools_Back/.DS_Store
+
+Pdf_tools_Back/downloaded/
+Pdf_tools_Back/downloaded_images/
+
+downloads/
+images/
+
+.DS_Store
+
+
+Pdf_tools_Back/.venv/
+Pdf_tools_Back/__pycache__/

@@ -1,0 +1,27 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "${FRONTEND_PORT:-3001}:3000"  # 외부 포트 설정 가능
+    environment:
+      - NODE_ENV=production
+      - FASTAPI_URL=${FASTAPI_URL:-http://backend:8000}  # 내부 통신용
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-http://localhost:8000}  # 외부 접속용
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"  # 외부 포트 설정 가능
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./downloads:/app/backend/downloaded
+      - ./images:/app/backend/downloaded_images
+    restart: unless-stopped
